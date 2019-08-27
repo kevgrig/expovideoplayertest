@@ -1,10 +1,22 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { Video } from 'expo-av';
+import VideoPlayer from 'expo-video-player';
+
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+      <VideoPlayer
+        videoProps={{
+          shouldPlay: true,
+          resizeMode: Video.RESIZE_MODE_CONTAIN,
+          source: {
+            uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+          },
+        }}
+        isPortrait={true}
+      />
     </View>
   );
 }
